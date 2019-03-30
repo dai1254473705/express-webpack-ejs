@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* reset  */
+        *{padding:0;margin:0;}
+        /* content */
+        .zt-form-content{
+            width: 600px;
+            padding:30px;
+        }
+        .zt-form-body {
+            
+        }
+        .zt-form-item{
+            width: 100%;
+            margin-bottom: 15px;
+            clear: both;
+            *zoom: 1;
+        }
+        .zt-form-item::after {
+            content: '';
+            clear: both;
+            *zoom: 1;
+            display: block;
+            height: 0;
+        }
+        .zt-form-body select ,.zt-form-body textarea{
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            outline:none;
+            border-color: #e6e6e6;
+            width: 350px;
+        }
+        .zt-form-body select {
+            line-height: 40px;
+            height: 40px;
+            width: 370px;
+        }
+        .zt-province,.zt-city,.zt-type {
+            line-height: 40px;
+            height: 40px;
+        }
+        .zt-form-label {
+            float: left;
+            display: block;
+            padding: 9px 15px;
+            width: 80px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: right;
+        }
+        .zt-desc,.zt-title{
+            line-height: 20px;
+            padding: 6px 10px;
+            resize: vertical;
+            display: block;
+        }
+        .zt-title{
+            height:40px;
+        }
+        .zt-desc{
+            height: 100px;
+        }
+        .zt-input-block{
+            float: left;
+            min-height: 36px;
+            padding: 9px 15px;
+            width: 400px;
+        }
+        .zt-btn{
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 18px;
+            background-color: #009688;
+            color: #fff;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .zt-btn:hover {
+            opacity: .8;
+            filter: alpha(opacity=80);
+            color: #fff;
+        }
+        .zt-cancel {
+            background:#FFB800;
+            margin-left: 50px;
+        }
+        .btn-group{
+            text-align: center;
+        }
+        .zt-hidden {
+            display: none;
+        }
+        .zt-toast{
+            position: absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            top:0;
+            display: none;
+        }
+        .zt-toast.zt-show{
+            display: block;
+        }
+        .zt-toast p{
+            border-radius: 3px;
+            font-size: 14px;
+            text-align: center;
+            line-height: 16px;
+            padding:15px;
+            width: 100px;
+            background: rgba(0,0,0,0.7);
+            position: absolute;
+            left: 50%;
+            top:50%;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="zt-form-content">
+        <form class="zt-form-body">
+            <!-- 省份 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">省份</label>
+                <div class="zt-input-block">
+                    <select name="province" class="zt-province zt-select" placeholder="请选择省份">
+                        <option value="">----请选择省份----</option>
+                        <option value="0001">北京</option>
+                        <option value="0003">河北</option>
+                        <option value="0002">河南</option>
+                        <option value="0004">东北</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 城市 -->
+            <div class="zt-form-item zt-hidden">
+                <label class="zt-form-label">城市</label>
+                <div class="zt-input-block">
+                    <select name="city" class="zt-city zt-select">
+                        <option value="">----请选择城市----</option>
+                        <option value="0001">北京</option>
+                        <option value="0003">河北</option>
+                        <option value="0002">河南</option>
+                        <option value="0004">东北</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 类型 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">专题类型</label>
+                <div class="zt-input-block">
+                    <select name="type" class="zt-type zt-select">
+                        <option value="">----请选择类型----</option>
+                        <option value="0001">北京</option>
+                        <option value="0003">河北</option>
+                        <option value="0002">河南</option>
+                        <option value="0004">东北</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 标题 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">专题标题</label>
+                <div class="zt-input-block">
+                    <textarea name="title" placeholder="请输入专题标题"  class="zt-title zt-textarea" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            
+            <!-- 简介 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">专题简介</label>
+                <div class="zt-input-block">
+                    <textarea name="desc" placeholder="请输入专题简介" class="zt-desc zt-textarea" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="zt-toast">
+                <p class="zt-tips">标题不可</p>
+            </div>
+            <div class="btn-group">
+                <span class="zt-btn zt-confirm">确定</span>
+                <span class="zt-btn zt-cancel">取消</span>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+/**
+ * 专题提交页面相关js
+ * daiyunzhou 2019/03/29 18:10
+ * last modify: 2019/03/29 18:10
+ */
+ $(function (){
+    function ZTFORM(){
+        // state
+        this.state = {
+            province:'', // 省
+            city: '', // 市
+            type: '', // 类型
+            title: '',//  标题
+            desc: '',// 描述
+        };
+        // ajax 
+        this.submit = function (){
+            for (var key in this.state) {
+                var props = this.state[key];
+                var toast =  $('.zt-toast');
+                var tips = toast.find('.zt-tips');
+                if (!props) {
+                    console.log(key);
+
+                    switch (key) {
+                        case 'province':
+                        toast.addClass('zt-show');
+                        tips.html('省份不能为空');
+                        break;
+                        case 'city':
+                        toast.addClass('zt-show');
+                        tips.html('城市不能为空');
+                        break;
+                        case 'type':
+                        toast.addClass('zt-show');
+                        tips.html('类型不能为空');
+                        break;
+                        case 'title':
+                        toast.addClass('zt-show');
+                        tips.html('专题标题不能为空');
+                        break;
+                        case 'desc':
+                        toast.addClass('zt-show');
+                        tips.html('专题简介不能为空');
+                        break;
+                        default:
+                        toast.addClass('zt-show');
+                        tips.html(key+'不存在');
+                    }
+                    setTimeout(function(){
+                        toast.removeClass('zt-show');
+                    }, 2000);
+                    return;
+                }
+            }
+
+           
+        };
+        // 事件相关处理
+        this.event = function (){
+            var that = this;
+            // select 
+            $('.zt-select').on('change',function (){
+                var props = $(this).attr('name');
+                var val = $(this).find("option:selected").attr("value");
+                switch (props) {
+                    case 'province':
+                    that.state.province = val;
+                    // 判断city
+                    if (!val) {
+                        $('.zt-city').parents('.zt-form-item').addClass('zt-hidden');
+                        that.state.city = '';
+                    } else {
+                        $('.zt-city').parents('.zt-form-item').removeClass('zt-hidden');
+                        that.state.city = '';
+                    }
+                    break;
+                    case 'city':
+                    that.state.city = val;
+                    break;
+                    case 'type':
+                    that.state.type = val;
+                    break;
+                    default:
+                    $('.zt-toast').addClass('zt-show');
+                    $('.zt-tips').html('不存在的下拉框');
+                    return;
+                }
+                console.log(that.state);
+            });
+            // textarea input
+            $('.zt-textarea').on('input',function (){
+                var val = $(this).val();
+                var props = $(this).attr('name');
+                if (props === 'desc') {
+                    that.state.desc = val;
+                } else if (props === 'title'){
+                    that.state.title = val;
+                } else {
+                    $('.zt-toast').addClass('zt-show');
+                    $('.zt-tips').html('不存在的输入框');
+                }
+            });
+            // 提交
+            $('.zt-confirm').on('click',function (){
+                that.submit();
+            });
+            // 取消
+            $('.zt-cancel').on('click',function (){
+                for (var key in that.state) {
+                    that.state[key] = '';
+                }
+                $('.zt-form-body')[0].reset();
+            });
+        };
+
+        // init ZTFORM
+        this.init = function (){
+            this.event();
+        };
+    };
+    var ztfrom = new ZTFORM();
+    ztfrom.init();
+})
+</script>
+</html>

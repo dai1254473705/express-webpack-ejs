@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <% if (!reload) { %>
+    <link rel="stylesheet" href="/scripts/pages/index.css">
+    <% } %>
+</head>
+<body>
+    <div class="zt-form-content">
+        <form class="zt-form-body">
+            <!-- 省份 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">省份</label>
+                <div class="zt-input-block">
+                    <select name="province" class="zt-province zt-select" placeholder="请选择省份">
+                        <option value="">----请选择省份----</option>
+                        <option value="0001">北京</option>
+                        <option value="0003">河北</option>
+                        <option value="0002">河南</option>
+                        <option value="0004">东北</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 城市 -->
+            <div class="zt-form-item zt-hidden">
+                <label class="zt-form-label">城市</label>
+                <div class="zt-input-block">
+                    <select name="city" class="zt-city zt-select">
+                        <option value="">----请选择城市----</option>
+                        <option value="0001">北京</option>
+                        <option value="0003">河北</option>
+                        <option value="0002">河南</option>
+                        <option value="0004">东北</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 类型 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">专题类型</label>
+                <div class="zt-input-block">
+                    <select name="type" class="zt-type zt-select">
+                        <option value="">----请选择类型----</option>
+                        <option value="0001">北京</option>
+                        <option value="0003">河北</option>
+                        <option value="0002">河南</option>
+                        <option value="0004">东北</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 标题 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">专题标题</label>
+                <div class="zt-input-block">
+                    <textarea name="title" placeholder="请输入专题标题"  class="zt-title zt-textarea" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            
+            <!-- 简介 -->
+            <div class="zt-form-item">
+                <label class="zt-form-label">专题简介</label>
+                <div class="zt-input-block">
+                    <textarea name="desc" placeholder="请输入专题简介" class="zt-desc zt-textarea" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="zt-toast">
+                <p class="zt-tips">标题不可</p>
+            </div>
+            <div class="btn-group">
+                <span class="zt-btn zt-confirm">确定</span>
+                <span class="zt-btn zt-cancel">取消</span>
+            </div>
+        </form>
+    </div>
+</body>
+<% include ./common/script %>
+<script src="/scripts/pages/index.js"></script> 
+<script src="/scripts/pages/main.js"></script> 
+</html>

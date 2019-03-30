@@ -1,16 +1,57 @@
 {
-  "name": "expresswebpack",
-  "version": "0.0.0",
-  "private": true,
+  "name": "fe-node-template",
+  "version": "1.0.0",
+  "description": "zhuge fe node project",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "dev": "cross-env NODE_ENV=development nodemon --ignore src  --ignore public --watch controller/*.js --watch routes/*.js  --watch app.js --exec  node app.js",
+    "build": "cross-env NODE_ENV=production node config/build.js",
+    "start": "cross-env NODE_ENV=production node app.js"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11"
-  }
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "cross-env": "^5.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "glob": "^7.1.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.3",
+    "chalk": "^2.4.2",
+    "css-loader": "^2.1.1",
+    "cssnano": "^4.1.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "ora": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "reload": "^2.4.0",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "transfer-webpack-plugin": "^0.1.4",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-merge": "^4.2.1"
+  },
+  "browserslist": [
+    "defaults",
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8",
+    "ios > 7"
+  ]
 }
